@@ -13,7 +13,6 @@ def generar_respuesta(pregunta):
         return "lo siento no puedo ayudarte"
 
 def entrenar():
-    # Crear un archivo CSV y escribir en él
     with open("respuestaschat.csv", "a", newline="") as archivo:
         escritor = csv.writer(archivo)
         pregunta = input("ingresa la pregunta: ")
@@ -27,5 +26,7 @@ while True:
     if pregunta == "salir":
         print("hasta luego")
         break
+    if pregunta == "entrenar":
+        entrenar()
     respuesta = generar_respuesta(pregunta)
     print(respuesta)
