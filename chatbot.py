@@ -1,11 +1,10 @@
+import csv
+respuestas = {}
 
-respuestas = {
-    "hola":"hola como estas",
-    "tiene zapatos":"si somos una tienda de zapatos",
-    "donde estan ubicados":"estamos ubicados en sotomayor",
-    "en que ciudad":"Bucarmanga y otras",
-    "direccion":"crr 29 # 50-20"
-}
+with open("respuestaschat.csv", "r") as archivo:
+    lector = csv.DictReader(archivo)
+    for fila in lector:
+        respuestas[fila["preguntas"]] = fila["respuestas"]
 
 def generar_respuesta(pregunta):
     if pregunta in respuestas:
@@ -13,6 +12,13 @@ def generar_respuesta(pregunta):
     else:
         return "lo siento no puedo ayudarte"
 
+def entrenar():
+    # Crear un archivo CSV y escribir en él
+    with open("respuestaschat.csv", "a", newline="") as archivo:
+        escritor = csv.writer(archivo)
+        pregunta = input("ingresa la pregunta: ")
+        respuesta = input("ingresa la respuesta: ")
+        escritor.writerow([pregunta, respuesta])
 
 print("hola soy un chatbot de serivicio al cliente")
 
