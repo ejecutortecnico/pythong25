@@ -19,7 +19,7 @@ def entrenar():
         respuesta = input("ingresa la respuesta: ")
         escritor.writerow([pregunta, respuesta])
 
-print("hola soy un chatbot de serivicio al cliente")
+print("hola soy un chatbot de servicio al cliente")
 
 while True:
     pregunta = input("Hola en que puedo ayudarte: ")
